@@ -23,10 +23,10 @@ def generate(V, E):
     count = 0
     
     while count != E:
-            e = rng.choice(all_edges)
-            all_edges.remove(e)
-            count += 1
-            edges.append(e)
+        e = rng.choice(all_edges)
+        all_edges.remove(e)
+        count += 1
+        edges.append(e)
 
 
     return edges
