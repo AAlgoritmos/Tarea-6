@@ -11,7 +11,7 @@ def vertex_cover_2(G: SimpleGraph):
     Returns a vertex cover of the graph.
     """
     cover = set()
-    G2 = G.copy()
+    G2 = G
     while G2.E:
         u = max(G2.V, key=G2.degree)
         cover.add(u)
