@@ -21,8 +21,9 @@ def test(max_test, v, e):
     l2 = []
     l3 = []
     l4 = []
- 
-    for i in tqdm(range(max_test)):
+
+    for i in range(max_test):
+        print("Test #", i+1)
         edges = generate(v, e)
         G = SimpleGraph(edges)
 
@@ -49,14 +50,13 @@ def test(max_test, v, e):
         t2 = time()
         a4.append(t2-t1)
         l4.append(len(cover))
-        
-        
+
     return a1, l1, a2, l2, a3, l3, a4, l4
 
 
 V = [10000]
 
-E = [[3000, 5000]]
+E = [[3000]]
 
 max_test = 10
 
@@ -68,11 +68,11 @@ resultados = {"algoritmo1": [],
 columns = []
 
 print("----------------------")
-for i in tqdm(range(len(V))):
+for i in range(len(V)):
     print(f"Test para {V[i]} vértices")
     set_e = E[i]
     for e in set_e:
-        
+
         a1, l1, a2, l2, a3, l3, a4, l4 = test(max_test, V[i], e)
 
         resultados["algoritmo1"].append(np.mean(a1))
@@ -113,9 +113,9 @@ for i in tqdm(range(len(V))):
 
         print(f"Test con {e} aristas")
 
-        columns += ['Media', 'Desviación estándar', 'Maximo', 'Mínimo', 
+        columns += ['Media', 'Desviación estándar', 'Maximo', 'Mínimo',
                     'Media', 'Desviación estándar', 'Maximo', 'Mínimo']
-        
+
 
 data = pd.DataFrame.from_dict(resultados, orient='index', columns=columns)
 

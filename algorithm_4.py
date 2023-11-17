@@ -19,5 +19,4 @@ def vertex_cover_4(G: SimpleGraph):
         vertex = random.choice([u, v])
         cover.add(vertex)
         E = [e for e in E if vertex not in e]
-
     return cover
